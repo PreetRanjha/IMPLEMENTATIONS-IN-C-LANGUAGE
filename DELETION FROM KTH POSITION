@@ -1,0 +1,12 @@
+struct Node* delete_kth(struct Node* head, int k) {
+if(head == NULL) return NULL;
+if(k == 1) { struct Node* temp = head; head = head->next; free(temp); return head; }
+
+struct Node* temp = head;
+for(int i=1; i<k-1 && temp->next!=NULL; i++) temp = temp->next;
+
+struct Node* del = temp->next;
+temp->next = del->next;
+free(del);
+return head;
+}
