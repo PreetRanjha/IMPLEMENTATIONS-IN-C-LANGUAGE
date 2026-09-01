@@ -1,0 +1,9 @@
+struct Node* delete_end(struct Node* head) {
+if(head == NULL || head->next == NULL) { free(head); return NULL; }
+
+struct Node* temp = head;
+while(temp->next->next!= NULL) temp = temp->next;
+free(temp->next);
+temp->next = NULL;
+return head;
+}
