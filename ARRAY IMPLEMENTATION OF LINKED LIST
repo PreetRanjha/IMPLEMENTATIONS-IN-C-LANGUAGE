@@ -1,0 +1,23 @@
+#include <stdio.h>
+#define MAX 100
+
+int arr[MAX];
+int size = 0;
+
+void insert(int val) { arr[size++] = val; }
+void delete_begin() {
+for(int i=0; i<size-1; i++) arr[i] = arr[i+1];
+size--;
+}
+void traverse() {
+for(int i=0; i<size; i++) printf("%d ", arr[i]);
+printf("\n");
+}
+
+int main() {
+insert(10); insert(20); insert(30);
+printf("Array List: "); traverse();
+delete_begin();
+printf("After delete: "); traverse();
+return 0;
+}
