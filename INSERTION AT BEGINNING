@@ -1,0 +1,7 @@
+struct Node* insert_begin(struct Node* head, int data) {
+struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+newNode->data = data;
+newNode->next = head;
+head = newNode;
+return head;
+}
