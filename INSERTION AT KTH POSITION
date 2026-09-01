@@ -1,0 +1,13 @@
+struct Node* insert_kth(struct Node* head, int data, int k) {
+struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+newNode->data = data;
+
+if(k == 1) { newNode->next = head; return newNode; }
+
+struct Node* temp = head;
+for(int i=1; i<k-1 && temp!=NULL; i++) temp = temp->next;
+
+newNode->next = temp->next;
+temp->next = newNode;
+return head;
+}
